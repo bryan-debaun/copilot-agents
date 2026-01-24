@@ -305,6 +305,10 @@ When starting work on a new repository, create dedicated agents for that repo. T
 | **[Support Agent](https://github.com/bryan-debaun/copilot-agents/blob/main/templates/repo-support-agent-template.md)** | Answering questions, documentation | `[repo-name]-support.agent.md` |
 | **[PR Reviewer Agent](https://github.com/bryan-debaun/copilot-agents/blob/main/templates/repo-reviewer-agent-template.md)** | Code reviews, feedback, quality checks | `[repo-name]-reviewer.agent.md` |
 
+> **Note:** The files in `./templates/` (and this repository's `README.md`) are the authoritative, version-controlled source for repo-specific agent configurations and handoff patterns. When creating or updating a repo-specific agent, consult the appropriate template, apply the placeholders (`[repo-name]` for identifiers, `[RepoName]` for display), commit the new `.github/agents/[repo-name]-*.agent.md` file to the target repository, and open a PR for review. This ensures consistent naming, handoff schemas, and that changes are tracked in version control.
+
+> **Agent instructions source:** This agent's own instructions live in `./DeBaun-Coder.agent.md` (also published at https://github.com/bryan-debaun/copilot-agents/blob/main/DeBaun-Coder.agent.md). When clarifying behavior or resolving ambiguity, prefer the version-controlled file as the single source of truth. If you detect a divergence between the running agent's behavior and the repository file, document the discrepancy and propose a change via a PR that updates `DeBaun-Coder.agent.md` (include a concise summary and rationale).
+
 ### When to Create Repo Agents
 
 - **New repository creation**: Always create a repo-specific agent when setting up a new project
