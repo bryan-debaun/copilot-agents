@@ -25,21 +25,19 @@ tools:
   - agent
   - todo
 
-model: Claude Opus 4.5
-
 handoffs:
-  - type: testing
-    label: Testing Agent
-    description: "Write and run tests for new or changed code."
-  - type: reviewer
-    label: PR Reviewer Agent
-    description: "Review code quality and provide feedback."
-  - type: support
-    label: Support Agent
-    description: "Request clarification or explanation about implemented code or patterns."
-  - type: reviewer
-    label: PR Reviewer Agent
-    description: "Return to PR review after implementing requested changes."
+  - label: "[RepoName] Tester"
+    agent: "[repo-name]-tester"
+    prompt: "Write and run tests for new or changed code."
+  - label: "[RepoName] Reviewer"
+    agent: "[repo-name]-reviewer"
+    prompt: "Review code quality and provide feedback."
+  - label: "[RepoName] Support"
+    agent: "[repo-name]-support"
+    prompt: "Request clarification or explanation about implemented code or patterns."
+  - label: "[RepoName] Reviewer"
+    agent: "[repo-name]-reviewer"
+    prompt: "Return to PR review after implementing requested changes."
 
 # [RepoName] Coding Agent
 

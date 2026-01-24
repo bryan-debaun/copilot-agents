@@ -18,20 +18,19 @@ tools:
    - web/search
    - todo
 
-model: Claude Opus 4.5
 handoffs:
-   - type: coding
-      label: Coding Agent
-      description: "Address bugs or missing functionality discovered during testing."
-   - type: reviewer
-      label: PR Reviewer Agent
-      description: "Review new or updated tests and coverage."
-   - type: support
-      label: Support Agent
-      description: "Request clarification or explanation about test coverage, patterns, or results."
-   - type: reviewer
-      label: PR Reviewer Agent
-      description: "Return to PR review after updating or adding tests."
+  - label: "[RepoName] Coder"
+    agent: "[repo-name]-coder"
+    prompt: "Address bugs or missing functionality discovered during testing."
+  - label: "[RepoName] Reviewer"
+    agent: "[repo-name]-reviewer"
+    prompt: "Review new or updated tests and coverage."
+  - label: "[RepoName] Support"
+    agent: "[repo-name]-support"
+    prompt: "Request clarification or explanation about test coverage, patterns, or results."
+  - label: "[RepoName] Reviewer"
+    agent: "[repo-name]-reviewer"
+    prompt: "Return to PR review after updating or adding tests."
 ---
 
 ## [RepoName] Testing Agent

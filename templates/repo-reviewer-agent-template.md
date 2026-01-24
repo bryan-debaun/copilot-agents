@@ -21,14 +21,13 @@ tools:
   - agent
   - todo
 
-model: Claude Opus 4.5
 handoffs:
-  - type: coding
-    label: Coding Agent
-    description: "Address changes requested during review."
-  - type: testing
-    label: Testing Agent
-    description: "Address test-related feedback or add missing tests from review."
+  - label: "[RepoName] Coder"
+    agent: "[repo-name]-coder"
+    prompt: "Address changes requested during review."
+  - label: "[RepoName] Tester"
+    agent: "[repo-name]-tester"
+    prompt: "Address test-related feedback or add missing tests from review."
 ---
 
 ## [RepoName] PR Reviewer Agent

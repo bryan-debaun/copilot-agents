@@ -20,14 +20,13 @@ tools:
   - agent
   - todo
 
-model: Claude Opus 4.5
 handoffs:
-   - type: coding
-      label: Coding Agent
-      description: "Begin implementation based on gathered context or request clarification on code."
-   - type: testing
-      label: Testing Agent
-      description: "Explore or improve test coverage based on support findings or request clarification on tests."
+  - label: "[RepoName] Coder"
+    agent: "[repo-name]-coder"
+    prompt: "Begin implementation based on gathered context or request clarification on code."
+  - label: "[RepoName] Tester"
+    agent: "[repo-name]-tester"
+    prompt: "Explore or improve test coverage based on support findings or request clarification on tests."
 ---
 
 # [RepoName] Support Agent
