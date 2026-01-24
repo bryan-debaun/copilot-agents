@@ -8,7 +8,7 @@ Copy the content below into `.github/agents/[repo-name]-reviewer.agent.md` in th
 
 ```markdown
 ---
-description: "PR reviewer agent for [repo-name] - [brief description]"
+description: "PR reviewer agent for [RepoName] - [brief description]"
 name: [RepoName] Reviewer
 tools:
   - read/readFile
@@ -21,21 +21,20 @@ tools:
   - agent
   - todo
 
-model: Claude Opus 4.5
 handoffs:
-  - type: coding
-    label: Coding Agent
-    description: "Address changes requested during review."
-  - type: testing
-    label: Testing Agent
-    description: "Address test-related feedback or add missing tests from review."
+  - label: "[RepoName] Coder"
+    agent: "[repo-name]-coder"
+    prompt: "Address changes requested during review."
+  - label: "[RepoName] Tester"
+    agent: "[repo-name]-tester"
+    prompt: "Address test-related feedback or add missing tests from review."
 ---
 
 ## [RepoName] PR Reviewer Agent
 
 ## Purpose
 
-PR review-focused agent for [repo-name]. This agent provides:
+PR review-focused agent for [RepoName]. This agent provides:
 
 - **Actionable items**: Clear, categorized feedback with specific suggestions
 

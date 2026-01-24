@@ -8,7 +8,7 @@ Copy the content below into `.github/agents/[repo-name]-support.agent.md` in the
 
 ```markdown
 ---
-description: "Support agent for [repo-name] - [brief description]"
+description: "Support agent for [RepoName] - [brief description]"
 name: [RepoName] Support
 tools:
   - read/readFile
@@ -20,21 +20,20 @@ tools:
   - agent
   - todo
 
-model: Claude Opus 4.5
 handoffs:
-   - type: coding
-      label: Coding Agent
-      description: "Begin implementation based on gathered context or request clarification on code."
-   - type: testing
-      label: Testing Agent
-      description: "Explore or improve test coverage based on support findings or request clarification on tests."
+  - label: "[RepoName] Coder"
+    agent: "[repo-name]-coder"
+    prompt: "Begin implementation based on gathered context or request clarification on code."
+  - label: "[RepoName] Tester"
+    agent: "[repo-name]-tester"
+    prompt: "Explore or improve test coverage based on support findings or request clarification on tests."
 ---
 
 # [RepoName] Support Agent
 
 ## Purpose
 
-Support-focused agent for [repo-name]. This agent provides:
+Support-focused agent for [RepoName]. This agent provides:
 
 - **User support**: Answering "how do I..." questions about using the project
 - **Developer support**: Explaining architecture, onboarding contributors, clarifying internal workings

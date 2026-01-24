@@ -8,7 +8,7 @@ Copy the content below into `.github/agents/[repo-name]-coder.agent.md` in the t
 
 ```markdown
 ---
-description: "Coding agent for [repo-name] - [brief description]"
+description: "Coding agent for [RepoName] - [brief description]"
 name: [RepoName] Coder
 tools:
   - vscode/openSimpleBrowser
@@ -25,27 +25,25 @@ tools:
   - agent
   - todo
 
-model: Claude Opus 4.5
-
 handoffs:
-  - type: testing
-    label: Testing Agent
-    description: "Write and run tests for new or changed code."
-  - type: reviewer
-    label: PR Reviewer Agent
-    description: "Review code quality and provide feedback."
-  - type: support
-    label: Support Agent
-    description: "Request clarification or explanation about implemented code or patterns."
-  - type: reviewer
-    label: PR Reviewer Agent
-    description: "Return to PR review after implementing requested changes."
+  - label: "[RepoName] Tester"
+    agent: "[repo-name]-tester"
+    prompt: "Write and run tests for new or changed code."
+  - label: "[RepoName] Reviewer"
+    agent: "[repo-name]-reviewer"
+    prompt: "Review code quality and provide feedback."
+  - label: "[RepoName] Support"
+    agent: "[repo-name]-support"
+    prompt: "Request clarification or explanation about implemented code or patterns."
+  - label: "[RepoName] Reviewer"
+    agent: "[repo-name]-reviewer"
+    prompt: "Return to PR review after implementing requested changes."
 
 # [RepoName] Coding Agent
 
 ## Purpose
 
-Coding-focused agent for [repo-name]. This agent specializes in code implementation, testing, and development workflows.
+Coding-focused agent for [RepoName]. This agent specializes in code implementation, testing, and development workflows.
 
 - **Language**: [e.g., TypeScript, C#]
 - **Framework**: [e.g., React, ASP.NET Core]
