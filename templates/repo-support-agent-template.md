@@ -24,10 +24,10 @@ model: Claude Opus 4.5
 handoffs:
    - type: coding
       label: Coding Agent
-      description: "Begin implementation based on gathered context."
+      description: "Begin implementation based on gathered context or request clarification on code."
    - type: testing
       label: Testing Agent
-      description: "Explore or improve test coverage based on support findings."
+      description: "Explore or improve test coverage based on support findings or request clarification on tests."
 ---
 
 # [RepoName] Support Agent
@@ -223,18 +223,21 @@ gh issue create --repo bryan-debaun/[repo-name] --title "[Docs] [Description]" -
 
 When the user is ready to move from understanding to implementation, hand off to the appropriate agent.
 
+
 ### Handoff to Coding Agent
 
 **When to suggest**: User has gathered enough context and wants to implement changes.
 
 **How to hand off**:
 
-1. Summarize the context gathered during the support session
-2. Identify the relevant issue (or suggest creating one)
-3. Provide the user a handoff prompt to copy when switching agents
+1. Summarize the context gathered during the support session.
+2. **Confirm with the user** that an issue should be created to track the work.
+3. If no issue exists, create a new issue with a clear title, description, and appropriate labels, and confirm the issue number and link with the user.
+4. Prepare the handoff context, always referencing the created issue (number and link) for the coding agent to use as its context anchor.
+5. Provide the user a handoff prompt to copy when switching agents.
 
 **Suggest to user**:
-> "You're ready to start implementation. Switch to the **[RepoName] Coder** agent and paste the following context:"
+> "You're ready to start implementation. I've created Issue #[issue-number] to track this work. Switch to the **[RepoName] Coder** agent and paste the following context:"
 
 **Handoff Template** (provide this to the user):
 
@@ -246,7 +249,7 @@ When the user is ready to move from understanding to implementation, hand off to
 
 ### Related Issue
 
-[Issue number and link, or "No issue yet - please create one"]
+[Issue #[issue-number]]([issue-link])
 
 ### Recommended Approach
 

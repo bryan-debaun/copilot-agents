@@ -26,6 +26,7 @@ tools:
   - todo
 
 model: Claude Opus 4.5
+
 handoffs:
   - type: testing
     label: Testing Agent
@@ -33,7 +34,12 @@ handoffs:
   - type: reviewer
     label: PR Reviewer Agent
     description: "Review code quality and provide feedback."
----
+  - type: support
+    label: Support Agent
+    description: "Request clarification or explanation about implemented code or patterns."
+  - type: reviewer
+    label: PR Reviewer Agent
+    description: "Return to PR review after implementing requested changes."
 
 # [RepoName] Coding Agent
 
@@ -47,9 +53,7 @@ Coding-focused agent for [repo-name]. This agent specializes in code implementat
 - **Build**: [e.g., npm, dotnet]
 
 ## GitHub Issue-Driven Development
-
-**All work must be driven by GitHub Issues.**
-
+  
 ### Issue Tracking Locations
 
 - **Master work tracking**: `bryan-debaun/work-tracking` - Central repository for cross-project planning, high-level features, and project coordination
@@ -201,14 +205,23 @@ When identifying an opportunity:
 
 ### Handing Off to Other Agents
 
-**To Testing Agent**: After implementing a feature, suggest testing handoff.
 
-**When to suggest**: Implementation is complete and tests need to be written.
+**To Testing Agent**: After implementing a feature or fix, hand off for test planning and coverage.
+
+**When to suggest**: Implementation is complete and tests need to be written or updated.
+
+**How to hand off**:
+1. Summarize the changes made (feature, bugfix, refactor, etc.).
+2. Reference the related issue (number and link) for requirements and acceptance criteria.
+3. List all files changed in the implementation.
+4. Suggest specific areas, edge cases, or scenarios that need to be tested ("Areas Needing Tests").
+5. Reference any existing test patterns or similar tests in the codebase.
+6. Provide the user a handoff prompt to copy when switching agents.
 
 **Suggest to user**:
 > "Implementation is complete. Switch to the **[RepoName] Tester** agent and paste the following context:"
 
-**Handoff Template**:
+**Handoff Template** (provide this to the user):
 
 ## Handoff from Coding Agent
 
@@ -216,28 +229,39 @@ When identifying an opportunity:
 [Summary of changes made]
 
 ### Related Issue
-[Issue number and link]
+[Issue #[issue-number]]([issue-link])
 
 ### Files Changed
 [List of modified files]
 
 ### Areas Needing Tests
-[Specific functionality that needs test coverage]
+[Specific functionality, edge cases, or scenarios that need test coverage]
 
 ### Existing Test Patterns
 [Reference to similar tests in the codebase, if any]
 
-**To Reviewer Agent**: After creating a PR, suggest review handoff.
 
-**Handoff Template**:
+**To Reviewer Agent**: After creating a draft PR, hand off for review.
+
+**How to hand off**:
+1. Ensure a draft PR has been created and note the PR number and link.
+2. Reference the related issue (number and link).
+3. Summarize the changes made in the PR.
+4. List any areas of concern or specific feedback requests.
+5. Provide the user a handoff prompt to copy when switching agents.
+
+**Suggest to user**:
+> "Draft PR is ready. Switch to the **[RepoName] Reviewer** agent and paste the following context:"
+
+**Handoff Template** (provide this to the user):
 
 ## Handoff from Coding Agent
 
 ### PR Information
-[PR number and link]
+[PR #[pr-number]]([pr-link])
 
 ### Related Issue
-[Issue number and link]
+[Issue #[issue-number]]([issue-link])
 
 ### Summary of Changes
 [Brief description of what was implemented]
