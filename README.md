@@ -14,7 +14,10 @@ This repository contains custom agent definitions for GitHub Copilot in VS Code,
 copilot-agents/
 ├── DeBaun-Coder.agent.md    # Main personal coding agent
 ├── templates/
-│   └── repo-agent-template.md   # Template for creating repo-specific agents
+│   ├── repo-coding-agent-template.md    # Coding agent template
+│   ├── repo-testing-agent-template.md   # Testing agent template
+│   ├── repo-support-agent-template.md   # Support agent template
+│   └── repo-reviewer-agent-template.md  # PR reviewer agent template
 └── README.md
 ```
 
@@ -31,11 +34,14 @@ copilot-agents/
 
 ## Templates
 
-**[templates/repo-agent-template.md](templates/repo-agent-template.md)** - Template for creating repository-specific coding agents that inherit:
+Repository-specific agent templates for different purposes:
 
-- GitHub issue-driven development practices
-- Development workflow (branching, testing, commits)
-- MCP tool opportunity identification
+| Template | Purpose |
+|----------|---------|
+| **[Coding Agent](templates/repo-coding-agent-template.md)** | Code implementation, development workflows, branching, commits |
+| **[Testing Agent](templates/repo-testing-agent-template.md)** | Writing/running tests, coverage analysis, test quality |
+| **[Support Agent](templates/repo-support-agent-template.md)** | Answering questions, documentation, onboarding |
+| **[PR Reviewer Agent](templates/repo-reviewer-agent-template.md)** | Code reviews, constructive feedback, quality checks |
 
 ## Usage
 
@@ -51,10 +57,12 @@ copilot-agents/
 
 ### Creating Repo-Specific Agents
 
-1. Open the [repo-agent-template.md](templates/repo-agent-template.md)
+1. Choose the appropriate template(s) from the [Templates](#templates) table above
 2. Copy the template content
-3. Create `.github/agents/[repo-name]-coder.agent.md` in your target repository
+3. Create `.github/agents/[repo-name]-[type].agent.md` in your target repository
+   - e.g., `my-project-coder.agent.md`, `my-project-tester.agent.md`
 4. Customize the placeholders for your specific project
+5. Add additional agents as needed (coding agent is recommended as a minimum)
 
 ## Related
 
