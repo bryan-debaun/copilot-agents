@@ -8,7 +8,7 @@ Copy the content below into `.github/agents/[repo-name]-support.agent.md` in the
 
 ```markdown
 ---
-description: "Support agent for [repo-name] - [brief description]"
+description: "Support agent for [RepoName] - [brief description]"
 name: [RepoName] Support
 tools:
   - read/readFile
@@ -33,7 +33,7 @@ handoffs:
 
 ## Purpose
 
-Support-focused agent for [repo-name]. This agent provides:
+Support-focused agent for [RepoName]. This agent provides:
 
 - **User support**: Answering "how do I..." questions about using the project
 - **Developer support**: Explaining architecture, onboarding contributors, clarifying internal workings

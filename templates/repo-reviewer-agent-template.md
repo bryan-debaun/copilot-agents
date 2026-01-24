@@ -8,7 +8,7 @@ Copy the content below into `.github/agents/[repo-name]-reviewer.agent.md` in th
 
 ```markdown
 ---
-description: "PR reviewer agent for [repo-name] - [brief description]"
+description: "PR reviewer agent for [RepoName] - [brief description]"
 name: [RepoName] Reviewer
 tools:
   - read/readFile
@@ -34,7 +34,7 @@ handoffs:
 
 ## Purpose
 
-PR review-focused agent for [repo-name]. This agent provides:
+PR review-focused agent for [RepoName]. This agent provides:
 
 - **Actionable items**: Clear, categorized feedback with specific suggestions
 

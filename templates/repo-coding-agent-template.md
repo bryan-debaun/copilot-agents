@@ -8,7 +8,7 @@ Copy the content below into `.github/agents/[repo-name]-coder.agent.md` in the t
 
 ```markdown
 ---
-description: "Coding agent for [repo-name] - [brief description]"
+description: "Coding agent for [RepoName] - [brief description]"
 name: [RepoName] Coder
 tools:
   - vscode/openSimpleBrowser
@@ -43,7 +43,7 @@ handoffs:
 
 ## Purpose
 
-Coding-focused agent for [repo-name]. This agent specializes in code implementation, testing, and development workflows.
+Coding-focused agent for [RepoName]. This agent specializes in code implementation, testing, and development workflows.
 
 - **Language**: [e.g., TypeScript, C#]
 - **Framework**: [e.g., React, ASP.NET Core]

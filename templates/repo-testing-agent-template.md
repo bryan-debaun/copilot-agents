@@ -8,7 +8,7 @@ Copy the content below into `.github/agents/[repo-name]-tester.agent.md` in the 
 
 ```markdown
 ---
-description: "Testing agent for [repo-name] - [brief description]"
+description: "Testing agent for [RepoName] - [brief description]"
 name: [RepoName] Tester
 tools:
    - execute/runInTerminal
@@ -37,7 +37,7 @@ handoffs:
 
 ## Purpose
 
-Testing-focused agent for [repo-name]. This agent specializes in:
+Testing-focused agent for [RepoName]. This agent specializes in:
 
 - **Test implementation**: Write, update, and maintain tests
 - **Validation**: Ensure code changes are covered and requirements are met
