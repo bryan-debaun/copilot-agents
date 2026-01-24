@@ -351,7 +351,7 @@ When starting work on a new repository, create a dedicated coding agent for that
   - No force pushes to main
   - No branch deletion
   
-  **Note**: For solo projects, do NOT require PR reviews - GitHub doesn't allow you to approve your own PRs. The protection above prevents accidental force pushes while allowing you to merge your own PRs.
+  **Note**: For solo projects, do NOT require PR reviews - GitHub doesn't allow you to approve your own PRs. The protection above prevents accidental force pushes while allowing you to merge your own PRs. As a repo admin, you can bypass branch protection rules when merging PRs if needed.
 - **Verify workspace**: Confirm the repo is the currently open workspace in VS Code
 - **If not open**: Guide the user to open the repo folder, or use terminal to navigate:
   ```powershell
