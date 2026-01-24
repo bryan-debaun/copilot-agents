@@ -314,7 +314,7 @@ When starting work on a new repository, create a dedicated coding agent for that
   | **Career visibility** | ✅ Showcases skills to employers/recruiters | ❌ Not visible on profile |
   | **Portfolio building** | ✅ Demonstrates coding ability | ❌ Can't be shared easily |
   | **Community contribution** | ✅ Others can learn from/use it | ❌ No community benefit |
-  | **Branch protection** | ✅ Free PR review requirements | ❌ Requires paid plan |
+  | **Branch protection** | ✅ Free basic protection | ❌ Requires paid plan |
   | **Sensitive content** | ❌ Exposed to everyone | ✅ Hidden from public |
   | **Proprietary ideas** | ❌ Can be copied | ✅ Protected |
   | **API keys/secrets risk** | ⚠️ Higher risk if accidentally committed | ✅ Lower exposure |
@@ -342,17 +342,16 @@ When starting work on a new repository, create a dedicated coding agent for that
   # For private repos:
   gh repo create [repo-name] --private --description "[description]" --clone
   ```
-- **Protect the main branch** (public repos only): After creating the repo, set up branch protection to enforce PR reviews:
+- **Protect the main branch** (public repos only): After creating the repo, set up branch protection:
   ```powershell
-  $body = '{"required_status_checks":null,"enforce_admins":true,"required_pull_request_reviews":{"required_approving_review_count":1},"restrictions":null}'
+  $body = '{"required_status_checks":null,"enforce_admins":false,"required_pull_request_reviews":null,"restrictions":null}'
   echo $body | gh api repos/bryan-debaun/[repo-name]/branches/main/protection -X PUT --input -
   ```
   This ensures:
-  - No direct commits to main (must use PRs)
-  - At least 1 approving review required
-  - Rules enforced for admins too
+  - No force pushes to main
+  - No branch deletion
   
-  **Note**: Branch protection rules with PR reviews require a public repo or a paid GitHub plan for private repos.
+  **Note**: For solo projects, do NOT require PR reviews - GitHub doesn't allow you to approve your own PRs. The protection above prevents accidental force pushes while allowing you to merge your own PRs.
 - **Verify workspace**: Confirm the repo is the currently open workspace in VS Code
 - **If not open**: Guide the user to open the repo folder, or use terminal to navigate:
   ```powershell
