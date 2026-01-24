@@ -6,7 +6,7 @@ Copy the content below into `.github/agents/[repo-name]-coder.agent.md` in the t
 
 ## Template
 
-```yaml
+```markdown
 ---
 description: "Coding agent for [repo-name] - [brief description]"
 name: [RepoName] Coder
@@ -26,15 +26,20 @@ tools:
   - todo
 
 model: Claude Opus 4.5
+handoffs:
+  - type: testing
+    label: Testing Agent
+    description: "Write and run tests for new or changed code."
+  - type: reviewer
+    label: PR Reviewer Agent
+    description: "Review code quality and provide feedback."
 ---
 
 # [RepoName] Coding Agent
 
 ## Purpose
 
-[Description of what this repo is and what the agent should help with]
-
-## Tech Stack
+Coding-focused agent for [repo-name]. This agent specializes in code implementation, testing, and development workflows.
 
 - **Language**: [e.g., TypeScript, C#]
 - **Framework**: [e.g., React, ASP.NET Core]
@@ -70,7 +75,6 @@ model: Claude Opus 4.5
 
 ### Commands
 
-~~~powershell
 # Check master work tracking
 gh issue list --repo bryan-debaun/work-tracking --label "project:[repo-name]"
 
@@ -79,7 +83,6 @@ gh issue list --repo bryan-debaun/[repo-name]
 
 # Create repo-specific issue linked to master
 gh issue create --repo bryan-debaun/[repo-name] --title "[Title]" --body "Related to bryan-debaun/work-tracking#[number]"
-~~~
 
 ## Development Workflow
 
@@ -169,6 +172,78 @@ When identifying an opportunity:
 2. Propose new tools with: "This could be an MCP tool. Should I create an issue?"
 3. Label with `project:mcp-server` for tracking
 
+## Agent Handoffs
+
+### Receiving Handoffs
+
+**From Support Agent**: When receiving a handoff from the support agent, expect context in this format:
+
+## Handoff from Support Agent
+
+### Context Summary
+[What was discussed and learned]
+
+### Related Issue
+[Issue number and link]
+
+### Recommended Approach
+[Any recommendations from the support discussion]
+
+### Relevant Files
+[Key files identified during support session]
+
+**On receiving a handoff**:
+
+1. Review the provided context
+2. Verify the related issue exists and understand its requirements
+3. If no issue exists, **ASK the user** to create one before starting work
+4. Proceed with the normal coding workflow (baseline, branch, implement, test, commit)
+
+### Handing Off to Other Agents
+
+**To Testing Agent**: After implementing a feature, suggest testing handoff.
+
+**When to suggest**: Implementation is complete and tests need to be written.
+
+**Suggest to user**:
+> "Implementation is complete. Switch to the **[RepoName] Tester** agent and paste the following context:"
+
+**Handoff Template**:
+
+## Handoff from Coding Agent
+
+### What Was Implemented
+[Summary of changes made]
+
+### Related Issue
+[Issue number and link]
+
+### Files Changed
+[List of modified files]
+
+### Areas Needing Tests
+[Specific functionality that needs test coverage]
+
+### Existing Test Patterns
+[Reference to similar tests in the codebase, if any]
+
+**To Reviewer Agent**: After creating a PR, suggest review handoff.
+
+**Handoff Template**:
+
+## Handoff from Coding Agent
+
+### PR Information
+[PR number and link]
+
+### Related Issue
+[Issue number and link]
+
+### Summary of Changes
+[Brief description of what was implemented]
+
+### Areas of Concern
+[Any areas where you'd like specific feedback]
 ```
 
 ---
@@ -184,3 +259,4 @@ When using this template:
 5. **Document Coding Patterns** that are unique to this repo
 6. **Add Commands** for build, test, and run operations
 7. **Identify Focus Areas** based on project type and goals
+8. **Customize handoff templates** to include repo-specific context fields

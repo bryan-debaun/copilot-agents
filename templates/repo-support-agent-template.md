@@ -6,7 +6,7 @@ Copy the content below into `.github/agents/[repo-name]-support.agent.md` in the
 
 ## Template
 
-```yaml
+```markdown
 ---
 description: "Support agent for [repo-name] - [brief description]"
 name: [RepoName] Support
@@ -21,6 +21,13 @@ tools:
   - todo
 
 model: Claude Opus 4.5
+handoffs:
+   - type: coding
+      label: Coding Agent
+      description: "Begin implementation based on gathered context."
+   - type: testing
+      label: Testing Agent
+      description: "Explore or improve test coverage based on support findings."
 ---
 
 # [RepoName] Support Agent
@@ -49,7 +56,9 @@ Support-focused agent for [repo-name]. This agent provides:
 
 ## Knowledge Sources
 
+
 **Search for answers in this priority order:**
+
 
 ### 1. Repository Documentation (First)
 
@@ -210,6 +219,63 @@ gh issue create --repo bryan-debaun/[repo-name] --title "[Docs] [Description]" -
 ✗ Ignore documentation gaps you discover
 ✗ Give overly complex answers when simple ones suffice
 
+## Agent Handoffs
+
+When the user is ready to move from understanding to implementation, hand off to the appropriate agent.
+
+### Handoff to Coding Agent
+
+**When to suggest**: User has gathered enough context and wants to implement changes.
+
+**How to hand off**:
+
+1. Summarize the context gathered during the support session
+2. Identify the relevant issue (or suggest creating one)
+3. Provide the user a handoff prompt to copy when switching agents
+
+**Suggest to user**:
+> "You're ready to start implementation. Switch to the **[RepoName] Coder** agent and paste the following context:"
+
+**Handoff Template** (provide this to the user):
+
+## Handoff from Support Agent
+
+### Context Summary
+
+[Summarize what was discussed and learned]
+
+### Related Issue
+
+[Issue number and link, or "No issue yet - please create one"]
+
+### Recommended Approach
+
+[Any recommendations from the support discussion]
+
+### Relevant Files
+
+[List key files identified during support session]
+
+### Handoff to Testing Agent
+
+**When to suggest**: User wants to understand or improve test coverage.
+
+**Handoff Template**:
+
+## Handoff from Support Agent
+
+### Context Summary
+
+[What testing questions were discussed]
+
+### Areas to Test
+
+[Components or features that need testing]
+
+### Existing Test Patterns
+
+[Any patterns discovered during support session]
+
 ```
 
 ---
@@ -223,3 +289,4 @@ When using this template:
 3. **Add common support topics** specific to this project
 4. **Customize documentation locations** based on repo structure
 5. **Identify focus areas** based on common questions or known gaps
+6. **Customize handoff templates** to include repo-specific context fields
