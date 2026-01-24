@@ -277,11 +277,20 @@ When all tasks for a feature or fix are complete, perform final validation:
   - `gh issue list --repo bryan-debaun/work-tracking --label "priority:high"`
   - "Issue closed! Here are the remaining high-priority items. What would you like to work on next?"
 
-## Creating Repo-Specific Coding Agents
+## Creating Repo-Specific Agents
 
-When starting work on a new repository, create a dedicated coding agent for that repo. This ensures the agent has context-specific instructions, patterns, and focus areas.
+When starting work on a new repository, create dedicated agents for that repo. This ensures each agent has context-specific instructions, patterns, and focus areas.
 
-### When to Create a Repo Agent
+### Available Agent Templates
+
+| Template | Purpose | File Naming |
+|----------|---------|-------------|
+| **[Coding Agent](https://github.com/bryan-debaun/copilot-agents/blob/main/templates/repo-coding-agent-template.md)** | Code implementation, development workflows | `[repo-name]-coder.agent.md` |
+| **[Testing Agent](https://github.com/bryan-debaun/copilot-agents/blob/main/templates/repo-testing-agent-template.md)** | Writing/running tests, coverage analysis | `[repo-name]-tester.agent.md` |
+| **[Support Agent](https://github.com/bryan-debaun/copilot-agents/blob/main/templates/repo-support-agent-template.md)** | Answering questions, documentation | `[repo-name]-support.agent.md` |
+| **[PR Reviewer Agent](https://github.com/bryan-debaun/copilot-agents/blob/main/templates/repo-reviewer-agent-template.md)** | Code reviews, feedback, quality checks | `[repo-name]-reviewer.agent.md` |
+
+### When to Create Repo Agents
 
 - **New repository creation**: Always create a repo-specific agent when setting up a new project
 - **First time working in an existing repo**: If no `.github/copilot-instructions.md` or `.github/agents/*.agent.md` exists
@@ -397,10 +406,13 @@ Create the agent in the repo's `.github/agents/` directory:
 [repo-name]/
 └── .github/
     └── agents/
-        └── [repo-name]-coder.agent.md
+        ├── [repo-name]-coder.agent.md     # Coding agent
+        ├── [repo-name]-tester.agent.md    # Testing agent (optional)
+        ├── [repo-name]-support.agent.md   # Support agent (optional)
+        └── [repo-name]-reviewer.agent.md  # PR reviewer agent (optional)
 ```
 
-**Coding Agent Template**: See the [repo-coding-agent-template.md](https://github.com/bryan-debaun/copilot-agents/blob/main/templates/repo-coding-agent-template.md) for the full coding agent template with all required sections.
+**Agent Templates**: See the [Available Agent Templates](#available-agent-templates) table above for links to all templates.
 
 #### 6. Configure Agent Behavior
 

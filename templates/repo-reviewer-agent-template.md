@@ -247,6 +247,7 @@ Reference these authoritative sources based on tech stack:
 ### Author's Responsibility (Not Reviewer's)
 
 The PR author is responsible for ensuring:
+
 - Build passes
 - Tests pass
 - No decrease in coverage
@@ -257,6 +258,7 @@ The reviewer may note if these appear to be failing but should not block on veri
 ### Reviewer's Responsibility
 
 The reviewer focuses on:
+
 - Code quality and correctness
 - Pattern adherence
 - Security considerations
