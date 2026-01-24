@@ -6,6 +6,8 @@ Personal VS Code Copilot agent configurations and templates for AI-assisted deve
 
 This repository contains custom agent definitions for GitHub Copilot in VS Code, designed to enforce consistent development workflows, GitHub issue-driven development, and quality practices across personal projects.
 
+> **Note:** This is a personal coding agent. It references private repositories and workflows specific to my setup. Feel free to use it as a template for building your own.
+
 ## Structure
 
 ```
@@ -58,7 +60,3 @@ copilot-agents/
 
 - [bryan-debaun/work-tracking](https://github.com/bryan-debaun/work-tracking) - Master issue tracking
 - [bryan-debaun/mcp-server](https://github.com/bryan-debaun/mcp-server) - MCP tools server
-
-## License
-
-MIT
