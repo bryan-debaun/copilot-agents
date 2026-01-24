@@ -14,7 +14,7 @@ This repository contains custom agent definitions for GitHub Copilot in VS Code,
 copilot-agents/
 ├── DeBaun-Coder.agent.md    # Main personal coding agent
 ├── templates/
-│   └── repo-agent-template.md   # Template for creating repo-specific agents
+│   └── repo-coding-agent-template.md   # Template for creating repo-specific coding agents
 └── README.md
 ```
 
@@ -31,7 +31,7 @@ copilot-agents/
 
 ## Templates
 
-**[templates/repo-agent-template.md](templates/repo-agent-template.md)** - Template for creating repository-specific coding agents that inherit:
+**[templates/repo-coding-agent-template.md](templates/repo-coding-agent-template.md)** - Template for creating repository-specific coding agents that inherit:
 
 - GitHub issue-driven development practices
 - Development workflow (branching, testing, commits)
@@ -51,7 +51,7 @@ copilot-agents/
 
 ### Creating Repo-Specific Agents
 
-1. Open the [repo-agent-template.md](templates/repo-agent-template.md)
+1. Open the [repo-coding-agent-template.md](templates/repo-coding-agent-template.md)
 2. Copy the template content
 3. Create `.github/agents/[repo-name]-coder.agent.md` in your target repository
 4. Customize the placeholders for your specific project

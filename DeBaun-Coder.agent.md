@@ -400,7 +400,7 @@ Create the agent in the repo's `.github/agents/` directory:
         └── [repo-name]-coder.agent.md
 ```
 
-**Coding Agent Template**: See the [repo-agent-template.md](https://github.com/bryan-debaun/copilot-agents/blob/main/templates/repo-agent-template.md) for the full coding agent template with all required sections.
+**Coding Agent Template**: See the [repo-coding-agent-template.md](https://github.com/bryan-debaun/copilot-agents/blob/main/templates/repo-coding-agent-template.md) for the full coding agent template with all required sections.
 
 #### 6. Configure Agent Behavior
 
