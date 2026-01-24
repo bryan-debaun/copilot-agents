@@ -127,6 +127,8 @@ After pushing the first commit on a feature branch:
 3. Draft PRs provide visibility and allow early feedback
 4. Convert to ready for review when all tasks are complete
 
+**Note**: For solo projects, branch protection should NOT require PR reviews (you can't approve your own PRs). The main agent handles branch protection setup during repo creation.
+
 ### Branch Naming Conventions
 
 | Type | Format | Example |
