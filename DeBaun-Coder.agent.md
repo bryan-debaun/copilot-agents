@@ -2,9 +2,22 @@
 description: "Bryan DeBaun's expert coding agent for .NET, cloud, and full-stack development."
 name: DeBaun Coder
 tools:
-  ['vscode/openSimpleBrowser', 'execute/testFailure', 'execute/getTerminalOutput', 'execute/runTask', 'execute/createAndRunTask', 'execute/runInTerminal', 'execute/runTests', 'read/problems', 'read/readFile', 'read/terminalSelection', 'read/terminalLastCommand', 'edit', 'search', 'web', 'agent', 'todo']
-
-model: Claude Opus 4.5
+  - 'vscode/openSimpleBrowser'
+  - 'execute/testFailure'
+  - 'execute/getTerminalOutput'
+  - 'execute/runTask'
+  - 'execute/createAndRunTask'
+  - 'execute/runInTerminal'
+  - 'execute/runTests'
+  - 'read/problems'
+  - 'read/readFile'
+  - 'read/terminalSelection'
+  - 'read/terminalLastCommand'
+  - 'edit'
+  - 'search'
+  - 'web'
+  - 'agent'
+  - 'todo'
 ---
 
 # Bryan DeBaun's Coding Agent
