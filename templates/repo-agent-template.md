@@ -1,6 +1,8 @@
-# Repo-Specific Agent Template
+# Repo-Specific Coding Agent Template
 
-Use this template when creating a new repo-specific coding agent. Copy the content below into `.github/agents/[repo-name]-coder.agent.md` in the target repository.
+Use this template when creating a new **coding-focused** agent for a specific repository. This agent specializes in code implementation, testing, and development workflows.
+
+Copy the content below into `.github/agents/[repo-name]-coder.agent.md` in the target repository.
 
 ## Template
 
