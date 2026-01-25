@@ -27,13 +27,13 @@ tools:
 
 handoffs:
   - label: "[RepoName] Tester"
-    agent: "[repo-name]-tester"
+    agent: "[RepoName] Tester"
     prompt: "Write and run tests for new or changed code."
   - label: "[RepoName] Reviewer"
-    agent: "[repo-name]-reviewer"
+    agent: "[RepoName] Reviewer"
     prompt: "Review code quality, provide feedback, and re-review after requested changes are implemented. When handing off, include Context, Related Issue, Files Changed, and Acceptance Criteria."
   - label: "[RepoName] Support"
-    agent: "[repo-name]-support"
+    agent: "[RepoName] Support"
     prompt: "Request clarification or explanation about implemented code or patterns."
 
 # [RepoName] Coding Agent
