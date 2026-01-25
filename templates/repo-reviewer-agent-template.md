@@ -72,7 +72,7 @@ Short, actionable guidance for reviewing PRs in this repository. Use this as the
 - Tests added/updated as needed, and coverage not decreased without discussion
 - No glaring security or performance regressions
 
-``` 
+```
 
 ## Customization notes
 

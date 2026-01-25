@@ -27,7 +27,6 @@ handoffs:
     agent: "[RepoName] Reviewer"
     prompt: "Request a PR review focused on documentation or issue clarifications. Include: PR link, Summary of Documentation Changes, and Areas to Verify."
 ---
-```
 
 # [RepoName] Support Agent
 
@@ -92,6 +91,8 @@ Short, actionable guidance for answering questions, clarifying requirements, and
 - Support → Coder: Context summary, Proposed Acceptance Criteria, Related Issue (or propose one), Relevant Files
 - Support → Tester: Areas to test, Test data or repro steps, Existing test patterns
 - Support → Reviewer: PR link (docs or clarifying changes), Summary of what to verify
+
+```
 
 ## Customization notes
 

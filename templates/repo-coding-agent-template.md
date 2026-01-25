@@ -7,28 +7,26 @@ Use this template to create a coding-focused agent for a repository. It is GitHu
 description: "Coding agent for [RepoName] - [brief description]"
 name: "[RepoName] Coder"
 tools:
-
-- vscode/openSimpleBrowser
-- execute/runInTerminal
-- execute/runTests
-- read/readFile
-- read/getChangedFiles
-- read/listCodeUsages
-- edit
-- search
-- web/fetch
-- agent
-- todo
+  - vscode/openSimpleBrowser
+  - execute/runInTerminal
+  - execute/runTests
+  - read/readFile
+  - read/getChangedFiles
+  - read/listCodeUsages
+  - edit
+  - search
+  - web/fetch
+  - agent
+  - todo
 
 handoffs:
-
-- label: "[RepoName] Tester"
+  - label: "[RepoName] Tester"
     agent: "[RepoName] Tester"
     prompt: "Write and run tests for new or changed code. Include: Context, Related Issue, Files Changed, Areas Needing Tests, and Suggested Test Approach."
-- label: "[RepoName] Reviewer"
+  - label: "[RepoName] Reviewer"
     agent: "[RepoName] Reviewer"
     prompt: "Review PRs for correctness, patterns, and risks. Include: PR link, Review Focus, and Blocking Issues."
-- label: "[RepoName] Support"
+  - label: "[RepoName] Support"
     agent: "[RepoName] Support"
     prompt: "Request clarifications; include Context and Proposed Acceptance Criteria."
 ---
