@@ -31,13 +31,10 @@ handoffs:
     prompt: "Write and run tests for new or changed code."
   - label: "[RepoName] Reviewer"
     agent: "[repo-name]-reviewer"
-    prompt: "Review code quality and provide feedback."
+    prompt: "Review code quality, provide feedback, and re-review after requested changes are implemented. When handing off, include Context, Related Issue, Files Changed, and Acceptance Criteria."
   - label: "[RepoName] Support"
     agent: "[repo-name]-support"
     prompt: "Request clarification or explanation about implemented code or patterns."
-  - label: "[RepoName] Reviewer"
-    agent: "[repo-name]-reviewer"
-    prompt: "Return to PR review after implementing requested changes."
 
 # [RepoName] Coding Agent
 
