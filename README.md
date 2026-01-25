@@ -34,7 +34,7 @@ copilot-agents/
 
 ## Templates
 
-Repository-specific agent templates for different purposes:
+Repository-specific agent templates for different purposes (TL;DR: copy template → replace placeholders → add required fields → run validator → PR).
 
 | Template | Purpose |
 |----------|---------|
