@@ -3,27 +3,27 @@ set -e
 
 exit_code=0
 
-# Find agent files tracked in the repo
-files=$(git ls-files '*.agent.md' || true)
-if [ -z "$files" ]; then
-  echo "No .agent.md files tracked in this repo."
-  exit 0
-fi
+# Validate template files under templates/ (ensure required frontmatter keys are present)
+template_files=$(git ls-files 'templates/*.md' || true)
+for f in $template_files; do
+  echo "\nValidating template: $f"
 
-for f in $files; do
-  echo "\nValidating: $f"
-
-  # Check for required keys anywhere in the file
+  # Check for required keys anywhere in the file (templates are allowed to contain placeholders)
   for key in "description:" "name:" "tools:" "handoffs:"; do
     if ! grep -qF "$key" "$f"; then
-      echo "ERROR: missing required key '$key' in $f"
+      echo "ERROR: missing required key '$key' in template $f"
       exit_code=1
     fi
   done
 
-  # Check for leftover placeholders
+done
+
+# Validate actual agent files (any tracked *.agent.md) to ensure placeholders have been replaced
+agent_files=$(git ls-files '*.agent.md' || true)
+for f in $agent_files; do
+  echo "\nChecking agent file for placeholders: $f"
   if grep -q "\[repo-name\]\|\[RepoName\]" "$f"; then
-    echo "ERROR: placeholders [repo-name] or [RepoName] remain in $f"
+    echo "ERROR: placeholders [repo-name] or [RepoName] remain in agent file $f"
     exit_code=1
   fi
 
