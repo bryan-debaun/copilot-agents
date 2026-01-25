@@ -21,6 +21,12 @@ done
 # Validate actual agent files (any tracked *.agent.md) to ensure placeholders have been replaced
 agent_files=$(git ls-files '*.agent.md' || true)
 for f in $agent_files; do
+  # Skip the main DeBaun-Coder agent file which intentionally documents placeholders
+  if [ "$(basename "$f")" = "DeBaun-Coder.agent.md" ]; then
+    echo "\nSkipping example agent file: $f"
+    continue
+  fi
+
   echo "\nChecking agent file for placeholders: $f"
   if grep -q "\[repo-name\]\|\[RepoName\]" "$f"; then
     echo "ERROR: placeholders [repo-name] or [RepoName] remain in agent file $f"
