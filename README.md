@@ -42,6 +42,14 @@ copilot-agents/
 - Stakeholder alignment, rollout and rollback planning, and risk mitigation
 - Operational readiness: observability, runbooks, and acceptance criteria
 
+**[DeBaun-Teacher.agent.md](DeBaun-Teacher.agent.md)** - Teacher and mentorship agent configured for:
+
+- Curriculum design, workshops, and short tutorials with hands-on exercises
+- Creating exercise sets, starter code, and evaluation rubrics
+- Mentorship-style feedback and code reviews to accelerate learning
+- Proposing learning paths for emergent technologies and evaluating practical experiments
+- Handoffs to `DeBaun-Architect` and `DeBaun-Coder` for spikes or implementations when appropriate
+
 ## Templates
 
 Repository-specific agent templates for different purposes (TL;DR: copy template → replace placeholders → add required fields → run validator → PR).
