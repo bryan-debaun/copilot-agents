@@ -1,3 +1,17 @@
+---
+description: "Discovery/design/spike issue template for well-scoped, actionable work items"
+name: issue-template
+tools:
+  - 'read/readFile'
+  - 'edit'
+  - 'todo'
+handoffs:
+  - label: "to-architect"
+    agent: DeBaun-Architect
+    prompt: >-
+      Handoff to DeBaun Architect: summarize the discovery findings and proposed prototype and ask the architect to create an ADR or spike plan if appropriate.
+---
+
 # Issue Template — Discovery/Design/Spike
 
 **Purpose**: Use this template for discovery, architecture, and spike work. It produces a well-scoped, actionable issue suitable to be the canonical work item from a discovery session.
