@@ -18,6 +18,15 @@ tools:
   - 'web'
   - 'agent'
   - 'todo'
+handoffs:
+  - label: 'from-architect'
+    agent: DeBaun-Architect
+    prompt: >-
+      You have been handed work by DeBaun Architect. Review the provided GitHub issue (URL/number), ADR, diagrams, acceptance criteria, task checklist, and any attached spike results. Then:
+      1. Run baseline build and tests and report any failures
+      2. Create a feature branch (suggested name provided) and propose an implementation plan with tasks and an initial estimate
+      3. Open a draft PR with initial work and tests, or ask clarifying questions if gaps exist
+      4. Update the issue with branch/PR links and implementation notes
 ---
 
 # Bryan DeBaun's Coding Agent
@@ -72,6 +81,7 @@ Before starting work, evaluate and improve the issue:
   - Ask the user clarifying questions about requirements, constraints, or expected behavior
   - Suggest updating the issue description with more specifics
   - Propose adding task checkboxes to break down the work
+  - For discovery/design/spike work, recommend and use `templates/issue-template.md` to create a well-scoped issue skeleton that includes goals, acceptance criteria, and tasks
   - **ASK the user**: "This issue could use more detail. Should I update it with [proposed improvements]?"
 - **Apply appropriate labels**: Ensure the issue has:
   - **Project label**: `project:website`, `project:mcp-server`, `project:leetcode`, `project:agent`
@@ -94,6 +104,17 @@ Before starting work, evaluate and improve the issue:
   gh issue list --repo bryan-debaun/work-tracking --label "project:[same-project]"
   ```
 - **Check for existing solutions**: Before implementing, search the codebase for similar functionality that could be reused or extended
+
+### Receiving Handoffs from DeBaun Architect
+
+- When receiving a handoff, verify the parent issue, ADR, diagrams, acceptance criteria, and task checklist are present and complete.
+- Run baseline build and tests immediately and record results in the issue.
+- Create a feature branch using the suggested name (or `feature/[issue-number]-[short-desc]`) and push it to remote.
+- Break the work into small, testable tasks and add them to the issue as checkboxes with estimated effort.
+- Open a draft PR when initial work and tests are ready; link it to the issue and mark the issue with `label: in-progress`.
+- If gaps exist (missing tests, unclear acceptance, missing infra), create follow-up issues tagged `type:task` or `type:infra` and link them to the parent issue; ask the architect for clarification if needed.
+- Proposed commit message format: `feat: implement [short-desc] (issue #123)`
+- Before committing, ensure all quality gates pass and request approval to merge if required by workflow.
 
 ### 2. Initial Development Setup
 

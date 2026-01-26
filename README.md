@@ -13,15 +13,17 @@ This repository contains custom agent definitions for GitHub Copilot in VS Code,
 ```
 copilot-agents/
 ├── DeBaun-Coder.agent.md    # Main personal coding agent
+├── DeBaun-Architect.agent.md # Solution discovery & architecture lead agent
 ├── templates/
 │   ├── repo-coding-agent-template.md    # Coding agent template
 │   ├── repo-testing-agent-template.md   # Testing agent template
 │   ├── repo-support-agent-template.md   # Support agent template
-│   └── repo-reviewer-agent-template.md  # PR reviewer agent template
+│   ├── repo-reviewer-agent-template.md  # PR reviewer agent template
+│   └── issue-template.md                 # Discovery/design/spike issue template
 └── README.md
 ```
 
-## Main Agent
+## Main Agents
 
 **[DeBaun-Coder.agent.md](DeBaun-Coder.agent.md)** - A comprehensive coding agent configured for:
 
@@ -31,6 +33,22 @@ copilot-agents/
 - Draft PR creation for visibility
 - MCP tool integration opportunities
 - Repo-specific agent creation workflow
+
+**[DeBaun-Architect.agent.md](DeBaun-Architect.agent.md)** - Solution discovery and lead architecture agent configured for:
+
+- Leading solution discovery and feasibility experiments (spikes & POCs)
+- Defining non-functional requirements and measurable success criteria
+- Producing Architecture Decision Records (ADRs) and architecture diagrams
+- Stakeholder alignment, rollout and rollback planning, and risk mitigation
+- Operational readiness: observability, runbooks, and acceptance criteria
+
+**[DeBaun-Teacher.agent.md](DeBaun-Teacher.agent.md)** - Teacher and mentorship agent configured for:
+
+- Curriculum design, workshops, and short tutorials with hands-on exercises
+- Creating exercise sets, starter code, and evaluation rubrics
+- Mentorship-style feedback and code reviews to accelerate learning
+- Proposing learning paths for emergent technologies and evaluating practical experiments
+- Handoffs to `DeBaun-Architect` and `DeBaun-Coder` for spikes or implementations when appropriate
 
 ## Templates
 
@@ -42,6 +60,7 @@ Repository-specific agent templates for different purposes (TL;DR: copy template
 | **[Testing Agent](templates/repo-testing-agent-template.md)** | Writing/running tests, coverage analysis, test quality |
 | **[Support Agent](templates/repo-support-agent-template.md)** | Answering questions, documentation, onboarding |
 | **[PR Reviewer Agent](templates/repo-reviewer-agent-template.md)** | Code reviews, constructive feedback, quality checks |
+| **[Issue Template](templates/issue-template.md)** | Discovery/design/spike issue skeleton for well-scoped, actionable work items |
 
 ## Usage
 
