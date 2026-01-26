@@ -14,6 +14,7 @@ This repository contains custom agent definitions for GitHub Copilot in VS Code,
 copilot-agents/
 ├── DeBaun-Coder.agent.md    # Main personal coding agent
 ├── DeBaun-Architect.agent.md # Solution discovery & architecture lead agent
+├── DeBaun-Teacher.agent.md  # Teacher and mentorship agent
 ├── templates/
 │   ├── repo-coding-agent-template.md    # Coding agent template
 │   ├── repo-testing-agent-template.md   # Testing agent template

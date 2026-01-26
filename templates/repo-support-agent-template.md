@@ -76,6 +76,7 @@ Short, actionable guidance for answering questions, clarifying requirements, and
 ## Issue creation workflow
 
 1. Draft a concise issue title and body that includes repro steps and acceptance criteria
+   - **Note:** Use Markdown for issue and PR bodies; avoid pasting raw JSON as the main description. If including structured JSON or machine-readable snippets, add them in fenced code blocks and provide a brief Markdown summary to explain the data.
 2. Add appropriate labels (`documentation`, `bug`, `question`, `priority:low|medium|high`)
 3. Ask user for approval before creating the issue
 

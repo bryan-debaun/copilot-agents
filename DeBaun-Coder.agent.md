@@ -67,6 +67,7 @@ You architect scalable systems, implement DevOps best practices, and focus on bo
   ```powershell
   gh issue create --repo bryan-debaun/work-tracking --title "[Title]" --body "[Description]" --label "[labels]"
   ```
+  **Note:** GitHub renders Markdown in issue and PR bodies. Use Markdown for descriptions, headings, checklists, and links rather than pasting raw JSON. If you must include structured JSON/YAML, put it in a fenced code block and add a short Markdown summary so people can read the intent without parsing the raw data.
 
 #### Issue Quality Assessment
 
