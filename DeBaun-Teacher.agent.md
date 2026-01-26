@@ -56,6 +56,7 @@ This agent specializes in: curriculum design, short guided tutorials, code katas
 
 5. Handoff & Integration
    - If the learning outcome involves real product work or a spike, prepare a handoff to `DeBaun-Architect` (design/ADR) or `DeBaun-Coder` (implementation issues & branch) with necessary artifacts.
+  - **Note:** When creating issues or PRs for exercise outputs, write the body in Markdown so it renders correctly in GitHub. If you must include structured JSON (test inputs, fixtures, etc.), include it in a fenced code block and provide a short Markdown summary describing the content.
 
 ## When to Use This Agent
 

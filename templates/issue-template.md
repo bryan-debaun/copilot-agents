@@ -94,6 +94,8 @@ Concise, concrete description of the problem to solve.
 
 - Paste into a new GitHub issue when starting discovery work. Use the checklist during the session and create linked follow-ups for implementation work. Ask the user to confirm labels and priority; if the user is unavailable, propose a sensible default and document the rationale.
 
+**Note:** GitHub renders Markdown in issue and PR bodies. Use Markdown for descriptions, headings, checklists, and links—do not paste raw JSON as the primary description. If you need to include structured JSON or YAML, place it inside a fenced code block and add a brief Markdown summary above it to make the content human-readable.
+
 **Example snippet**
 > Title: "Spike: Evaluate OpenSearch vs Algolia for full-text search"
 

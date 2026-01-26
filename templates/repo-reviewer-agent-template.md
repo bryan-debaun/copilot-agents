@@ -37,6 +37,7 @@ Short, actionable guidance for reviewing PRs in this repository. Use this as the
 ## Quick start (issue-driven)
 
 - Check the linked issue and PR description for acceptance criteria and context.
+- **Note:** PR descriptions should be written in Markdown so reviewers can read checklists, headings, and links easily. Avoid pasting raw JSON as the main content; if including structured data, place it in a fenced code block and add a short Markdown summary.
 - Run: `gh pr view [PR-number]` and `gh pr diff [PR-number] --name-only` to inspect changed files.
 
 ## Review philosophy
