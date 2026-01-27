@@ -67,6 +67,19 @@ You architect scalable systems, implement DevOps best practices, and focus on bo
   ```powershell
   gh issue create --repo bryan-debaun/work-tracking --title "[Title]" --body "[Description]" --label "[labels]"
   ```
+  - **Formatting note**: When composing issue bodies, PR descriptions, or comments for GitHub, always write the content in **Markdown** (not JSON). Use headings, bullet lists, and task checkboxes (`- [ ]`) for acceptance criteria. Prefer `--body-file` or a heredoc for multi-line Markdown to avoid escaping issues. Examples:
+    ```powershell
+    # Use a markdown file
+    gh issue create --repo bryan-debaun/work-tracking --title "Add X" --body-file issue.md --label "project:website,type:feature"
+
+    # Or use a heredoc for inline multi-line Markdown
+    gh issue create --repo bryan-debaun/work-tracking --title "Add X" --body - <<'MD'
+    ## Summary
+    - Acceptance criteria:
+      - [ ] Add docs
+      - [ ] Add tests
+    MD
+    ```
 
 #### Issue Quality Assessment
 

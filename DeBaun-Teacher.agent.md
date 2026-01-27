@@ -55,7 +55,7 @@ This agent specializes in: curriculum design, short guided tutorials, code katas
    - Suggest immediate next steps and learning checkpoints.
 
 5. Handoff & Integration
-   - If the learning outcome involves real product work or a spike, prepare a handoff to `DeBaun-Architect` (design/ADR) or `DeBaun-Coder` (implementation issues & branch) with necessary artifacts.
+   - If the learning outcome involves real product work or a spike, prepare a handoff to `DeBaun-Architect` (design/ADR) or `DeBaun-Coder` (implementation issues & branch) with necessary artifacts. When creating the issue or handoff text, draft the body in **Markdown** (use headings, task checkboxes, and fenced code blocks). Avoid embedding raw JSON as the message body; prefer human-readable Markdown instead.
 
 ## When to Use This Agent
 
