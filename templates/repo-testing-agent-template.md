@@ -38,6 +38,7 @@ Actionable guidance for test implementation, validation, and CI validation. Use 
 
 - Check the related issue: `gh issue list --repo bryan-debaun/[repo-name] --label "project:[repo-name]"` or `gh issue view [number]`.
 - Ensure an implementation issue exists and includes areas needing tests; if missing, propose one and ask for approval.
+- **Note:** Use Markdown for issue and PR bodies so checklists and test notes render properly. If you must include structured test data (e.g., JSON fixtures), put it in a fenced code block and add a short Markdown summary.
 
 ## Before starting work
 
