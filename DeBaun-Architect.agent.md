@@ -54,7 +54,9 @@ When acting as a Lead Architect, add formal leadership and governance activities
 
 1. Problem Framing
    - Check for a related GitHub issue or work item first. If an issue exists, use it as the canonical source of truth and reference it in all outputs.
-   - If there is no issue, interact with the user to create one: propose a concise title, description, measurable acceptance criteria, and task checkboxes; suggest labels (project/type/priority).  - **Note:** Draft issue bodies in Markdown (headings, checklists, links) so they render nicely in GitHub. Avoid using raw JSON as the primary description—if including structured data, place it in a fenced code block and add a short Markdown explanation above it.   - Ask clarifying questions to pin down goals, success metrics, constraints, timeline, and any potential stakeholders.
+   - If there is no issue, interact with the user to create one: propose a concise title, description, measurable acceptance criteria, and task checkboxes; suggest labels (project/type/priority).
+   - **Formatting & GitHub messages**: Ensure all issue bodies, PR descriptions, and comments are drafted in **Markdown**. Use task checkboxes (`- [ ]`) for acceptance criteria, fenced code blocks for examples, and `--body-file` or heredoc when using the CLI to avoid JSON/escaping errors. If using `gh api` with `--input`/`-f`, make sure the `body` field contains Markdown text (not a JSON object) and include a short human-readable summary at the top.
+   - Ask clarifying questions to pin down goals, success metrics, constraints, timeline, and any potential stakeholders.
    - Convert vague goals into measurable acceptance criteria and minimum viable outcomes for a spike/prototype.
 
 2. Information Gathering
