@@ -80,62 +80,19 @@ When acting as a Lead Architect, add formal leadership and governance activities
 
 ### Interacting with GitHub
 
-- **Overview:** Ensure all issue/PR/comment content is authored in **Markdown** and posted using files to avoid JSON/escaping issues. Prefer using `--body-file` with the `gh` CLI or equivalent file-based submission methods.
+For authoritative guidance on composing and submitting issues, PR descriptions, and comments in **Markdown** (not JSON), see:
 
-- **Best practices:**
-  - Write content to logical subdirectories under `agent-artifacts/` to keep drafts organized, for example:
-    - `agent-artifacts/issues/` — issue bodies and drafts (naming: `issue-<id>-body.md`)
-    - `agent-artifacts/prs/` — PR descriptions and PR comments (naming: `pr-<id>-body.md`, `pr-<id>-comment.md`)
-    - `agent-artifacts/adr/` — ADR drafts (naming: `adr-<id>-draft.md`)
-    - `agent-artifacts/templates/` — local templates used by agents
-  - Use clear file naming (include ticket number when applicable) and put a short subject line at the top of the file.
-  - Validate drafts before posting using the included script: `agent-artifacts/validate-markdown.ps1 <file>`.
-  - Use `gh` commands with `--body-file` (examples below) rather than passing JSON in the `body` field.
+https://github.com/bryan-debaun/copilot-agents/tree/main/docs/github-interactions.md
 
-- **Example commands:**
-  - `gh issue create --repo owner/repo --title "Short title" --body-file agent-artifacts/issues/issue-123-body.md`
-  - `gh issue edit 123 --repo owner/repo --body-file agent-artifacts/issues/issue-123-body.md`
-  - `gh pr create --repo owner/repo --title "Short title" --body-file agent-artifacts/prs/pr-123-body.md`
-  - `gh pr comment 123 --repo owner/repo --body-file agent-artifacts/prs/pr-123-comment.md`
-
-#### Do's & Don'ts
-
-**Do:**
-- Author all issue/PR/comment content in **Markdown** and save drafts to the appropriate `agent-artifacts/` subdirectory (`issues/`, `prs/`, `adr/`, `templates/`).
-- Use a short subject line, a one-line summary, task checkboxes (`- [ ]`), and fenced code blocks for examples.
-- Validate content with `agent-artifacts/validate-markdown.ps1 <file>` before posting; fail early and provide a corrected suggestion if validation fails.
-- Post using file-based submission (for example, `gh --body-file agent-artifacts/issues/issue-123-body.md`) to avoid escaping/JSON issues.
-- Lint terminal command files with `agent-artifacts/validate-terminal.ps1 <file>` and test commands in a local PowerShell terminal before execution.
-- When preparing commits/pushes (only after explicit user consent or `handoff:ready`), run all validations (markdown, terminal), run unit/integration tests where applicable, and produce a commit checklist (branch name, expected tests, PR template).
-
-**Don't:**
-- Embed JSON blobs or machine-readable metadata directly in issue/PR bodies — use separate files (e.g., `agents/metadata.yml`) when machine-readable data is required.
-- Post drafts that are JSON-like or otherwise lack Markdown structure — the validator will block posting and ask for a human-friendly rewrite.
-- Use POSIX-only constructs in terminal commands (e.g., `&&`, `true;`, `/bin/sh`) — target PowerShell syntax and semantics instead.
-- Commit or track files from `agent-artifacts/` by default; these artifacts are local-only. Move a file into `docs/` if it should be tracked and versioned.
+(This document includes recommended file locations under `agent-artifacts/`, validation steps, Do's & Don'ts, and example `gh` commands.)
 
 ### Terminal & Shell
 
-- **Execution environment:** Commands run using the repository's terminals execute in **Windows PowerShell** (PowerShell 5.1) by default. Agents should author commands using PowerShell syntax and conventions.
+For authoritative, PowerShell-focused guidance for preparing and running terminal commands (avoid POSIX-style artifacts such as `true;` and `&&`), see:
 
-- **Why this matters:** Some automated helpers or copy-pasta examples append POSIX-style fragments such as `true;` or use `&&` to chain commands. These either have no effect or will cause errors when run in PowerShell. Avoid these constructs.
+https://github.com/bryan-debaun/copilot-agents/tree/main/docs/terminal-guidance.md
 
-- **Guidelines:**
-  - Use semicolons (`;`) to chain commands on one line when needed.
-  - Prefer explicit exit codes (`exit 0`) where appropriate instead of `true;`.
-  - Avoid `&&` and other POSIX-only chaining operators.
-
-- **Examples:**
-
-  Wrong (POSIX-style):
-  ```bash
-  echo "Done" && true;
-  ```
-
-  Right (PowerShell):
-  ```powershell
-  Write-Output 'Done'; exit 0
-  ```
+(Also see `agent-artifacts/validate-terminal.ps1` for a local linter that will detect common POSIX artifacts.)
 
 ### Handoff to Coding Agent
 
@@ -204,7 +161,7 @@ Spike branch: spike/invoice-worker-benchmark (benchmark results attached)
 - Short research brief with recommendation (1–2 paragraphs)
 - Option comparison table (pros/cons/estimate)
 - Prototype plan or testing checklist when needed
-- Refined and actionable GitHub issue(s) ready for implementation (use `templates/issue-template.md` for discovery/design/spike work): clear problem statement, measurable acceptance criteria, task checklist, suggested labels, and priority
+- Refined and actionable GitHub issue(s) ready for implementation (use `https://github.com/bryan-debaun/copilot-agents/tree/main/templates/issue-template.md` for discovery/design/spike work): clear problem statement, measurable acceptance criteria, task checklist, suggested labels, and priority
 - Created follow-up issues for any gaps discovered during discovery (linked to the parent/design issue) with labels, priority, and an initial estimate
 
 ## Tools & Capabilities
