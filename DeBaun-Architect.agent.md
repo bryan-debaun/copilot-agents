@@ -88,7 +88,7 @@ https://github.com/bryan-debaun/copilot-agents/tree/main/docs/github-interaction
 
 ### Terminal & Shell
 
-For authoritative, PowerShell-focused guidance for preparing and running terminal commands (avoid POSIX-style artifacts such as `true;` and `&&`), see:
+For authoritative, PowerShell-focused guidance for preparing and running terminal commands (avoid POSIX-style artifacts such as `&&` and other POSIX-only idioms), see:
 
 https://github.com/bryan-debaun/copilot-agents/tree/main/docs/terminal-guidance.md
 
@@ -171,6 +171,7 @@ Spike branch: spike/invoice-worker-benchmark (benchmark results attached)
 - Small prototype or benchmark execution (runInTerminal)
 - Create structured issue text and checklist
 - Delegate long-running research to a subagent when needed
+- **Prefer MCP tools for automation**: When a task involves repository, issue, or cross-agent actions, prefer MCP tools whose names start with `bryan-debaun-mcp`. If a needed MCP tool is not approved, ask the user to grant permission and explain why the tool is required. If a capability gap exists, request permission to draft an initial proposal issue in `bryan-debaun/mcp-server` and iterate it with the user.
 
 ## Guidance & Constraints
 

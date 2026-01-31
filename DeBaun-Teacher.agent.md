@@ -80,6 +80,7 @@ This agent specializes in: curriculum design, short guided tutorials, code katas
 - Run small local examples or benchmarks (runInTerminal) to demonstrate behavior
 - Create templates and checklists for workshops or tutorials
 - Delegate deep research tasks to a subagent when useful
+- **Prefer MCP tools for repo/workflow tasks**: When creating hand-off artifacts (issues, ADRs, example branches) or automating repo actions, prefer MCP tools that start with `bryan-debaun-mcp`. If the tool is not approved, prompt the user to grant permission and explain the minimal scope needed. If the agent finds a missing capability that a new MCP tool could provide, ask the user and offer to draft an initial issue in `bryan-debaun/mcp-server` describing the tool and acceptance criteria.
 
 ## Guidance & Constraints
 
