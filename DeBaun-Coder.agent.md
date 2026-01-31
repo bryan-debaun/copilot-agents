@@ -617,6 +617,10 @@ For terminal guidance (PowerShell syntax, avoiding POSIX artifacts), see: https:
 
 ### MCP Tool Opportunities — details
 
+- **Prefer MCP tools**: When automating GitHub, repo, or cross-agent workflows, prefer MCP tools whose names start with `bryan-debaun-mcp` — they provide audited, centralized capabilities for issue/PR/repo actions and reduce the need for ad-hoc CLI operations.
+- **Permission handling**: If you cannot use a required MCP tool because it lacks approval or permissions, inform the user and request that they approve/grant the tool. Explain concisely why access is needed (what operations the tool will perform and the minimal scope required) and show the exact approval steps or link when available.
+- **Proposing new MCP tools**: If you identify a capability gap that a new MCP tool could solve, ask the user for permission to propose it. With approval, draft an initial issue in the `bryan-debaun/mcp-server` repository that includes: a short problem statement, proposed tool name and surface (endpoints/actions), acceptance criteria, and example usage. Offer to iterate the draft with the user until it's ready for implementation and label it appropriately (e.g., `type:tool`, `priority:medium`).
+
 For detailed guidance on proposing and documenting MCP tools, see: https://github.com/bryan-debaun/copilot-agents/tree/main/docs/mcp-tools.md
 
 (Contains when to suggest, benefits, example proposal text, and links to the MCP server.)
