@@ -39,7 +39,7 @@ Short, practical guidance for implementing changes in this repository. Use this 
 
 ## Quick start (issue-driven)
 
-- Check master tracker and repo issues: `gh issue list --repo bryan-debaun/work-tracking --label "project:[repo-name]"` and `gh issue list --repo bryan-debaun/[repo-name]`.
+- Check this repo's issues: `gh issue list --label "project:[repo-name]"` (work is tracked per-repo; portfolio-level organization is via user-level GitHub Projects (v2) boards).
 - Ensure a clear, testable issue exists. If not, draft one and ask the user before creating.
 - **Note:** Use Markdown for issue and PR descriptions (GitHub renders Markdown). If including structured JSON or other machine-readable data, wrap it in a fenced code block and include a short human-readable Markdown summary above it.
 - Establish baseline: `git checkout main && git pull`; run build and tests; note failing tests and coverage.

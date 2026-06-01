@@ -6,11 +6,11 @@ This document contains the detailed workflow for creating repository-specific ag
 
 **Always start from a GitHub Issue.** Before creating an agent ad-hoc:
 
-- Check if there's an issue for the repo setup in `bryan-debaun/work-tracking`.
+- Check if there's an issue for the repo setup in the current (target) repository's own GitHub Issues (work is tracked per-repo; portfolio-level organization is via user-level GitHub Projects (v2) boards).
 - If not, offer to create one:
 
   ```powershell
-  gh issue create --repo bryan-debaun/work-tracking --title "Set up [repo-name] repository" --body "..." --label "project:[name],type:setup,priority:high"
+  gh issue create --title "Set up [repo-name] repository" --body "..." --label "project:[name],type:setup,priority:high"
   ```
 
 - Include "Create repo-specific coding agent" as a task checkbox in the issue

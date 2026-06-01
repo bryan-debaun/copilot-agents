@@ -28,7 +28,7 @@ copilot-agents/
 
 **[DeBaun-Coder.agent.md](DeBaun-Coder.agent.md)** - A comprehensive coding agent configured for:
 
-- GitHub issue-driven development with `bryan-debaun/work-tracking` as the master issue tracker
+- GitHub issue-driven development using the current repository's own GitHub Issues, with portfolio-level organization via user-level GitHub Projects (v2) boards
 - Feature branch workflows with test baselines
 - Commit quality gates (build + tests must pass)
 - Draft PR creation for visibility
@@ -86,5 +86,5 @@ Repository-specific agent templates for different purposes (TL;DR: copy template
 
 ## Related
 
-- [bryan-debaun/work-tracking](https://github.com/bryan-debaun/work-tracking) - Master issue tracking
+- Work is tracked per-repo via each repository's own GitHub Issues; portfolio-level organization uses user-level GitHub Projects (v2) boards
 - [bryan-debaun/mcp-server](https://github.com/bryan-debaun/mcp-server) - MCP tools server
