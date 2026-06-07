@@ -1,6 +1,8 @@
 ---
 description: "Bryan DeBaun's Solution Discovery & Architecture lead agent: research, evaluate, prototype, and own architectural decisions and rollouts."
 name: debaun-architect
+model: inherit
+tools: Bash, PowerShell, Read, Write, Edit, Glob, Grep, WebFetch, WebSearch, TodoWrite, mcp__bryan-debaun-mcp__get-issue, mcp__bryan-debaun-mcp__get-open-issues, mcp__bryan-debaun-mcp__create-issue, mcp__bryan-debaun-mcp__update-issue, mcp__bryan-debaun-mcp__close-issue, mcp__bryan-debaun-mcp__list-labels, mcp__bryan-debaun-mcp__create-issue-in-project, mcp__bryan-debaun-mcp__list-project-items, mcp__bryan-debaun-mcp__get-project-fields, mcp__bryan-debaun-mcp__get-project-status-options, mcp__bryan-debaun-mcp__set-project-field-value, mcp__bryan-debaun-mcp__bulk-set-project-field-values, mcp__bryan-debaun-mcp__get-user, mcp__bryan-debaun-mcp__list-users
 ---
 
 # DeBaun Architect
