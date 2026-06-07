@@ -1,41 +1,46 @@
 # Copilot Agents
 
-Personal VS Code Copilot agent configurations and templates for AI-assisted development.
+Personal AI coding agent definitions and templates for AI-assisted development.
 
 ## Overview
 
-This repository contains custom agent definitions for GitHub Copilot in VS Code, designed to enforce consistent development workflows, GitHub issue-driven development, and quality practices across personal projects.
+This repository holds Bryan DeBaun's canonical **Claude Code subagent** definitions, designed to enforce consistent development workflows, GitHub issue-driven development, and quality practices across personal projects. The legacy GitHub Copilot `.agent.md` definitions have been retired to `archive/`.
 
 > **Note:** This is a personal coding agent. It references private repositories and workflows specific to my setup. Feel free to use it as a template for building your own.
 
 ## Structure
 
-```
+```text
 copilot-agents/
-├── DeBaun-Coder.agent.md    # Main personal coding agent
-├── DeBaun-Architect.agent.md # Solution discovery & architecture lead agent
-├── DeBaun-Teacher.agent.md  # Teacher and mentorship agent
-├── templates/
-│   ├── repo-coding-agent-template.md    # Coding agent template
-│   ├── repo-testing-agent-template.md   # Testing agent template
-│   ├── repo-support-agent-template.md   # Support agent template
-│   ├── repo-reviewer-agent-template.md  # PR reviewer agent template
-│   └── issue-template.md                 # Discovery/design/spike issue template
+├── agents/                       # Canonical Claude Code subagents
+│   ├── debaun-architect.md       # Solution discovery & architecture lead agent
+│   ├── debaun-coder.md           # Main personal coding agent
+│   ├── debaun-teacher.md         # Teacher and mentorship agent
+│   └── debaun-tester.md          # Testing agent (unit / integration / E2E)
+├── archive/                      # Deprecated legacy Copilot definitions
+│   ├── DeBaun-*.agent.md         # Old Copilot-format agents
+│   └── README.md
+├── templates/                    # Repo-specific agent templates (legacy Copilot format)
+├── docs/
+├── scripts/
+├── CLAUDE.md
 └── README.md
 ```
 
 ## Main Agents
 
-**[DeBaun-Coder.agent.md](DeBaun-Coder.agent.md)** - A comprehensive coding agent configured for:
+These are [Claude Code subagents](https://docs.claude.com/en/docs/claude-code/sub-agents). Each file's frontmatter sets `name`, `description`, `model`, and the `tools` it may use (core file/exec/web tools plus the GitHub Issues/Projects MCP tools).
 
-- GitHub issue-driven development with `bryan-debaun/work-tracking` as the master issue tracker
+**[debaun-coder](agents/debaun-coder.md)** — Comprehensive coding agent configured for:
+
+- GitHub issue-driven development using the current repository's own GitHub Issues, with portfolio-level organization via user-level GitHub Projects (v2) boards
 - Feature branch workflows with test baselines
 - Commit quality gates (build + tests must pass)
 - Draft PR creation for visibility
 - MCP tool integration opportunities
 - Repo-specific agent creation workflow
 
-**[DeBaun-Architect.agent.md](DeBaun-Architect.agent.md)** - Solution discovery and lead architecture agent configured for:
+**[debaun-architect](agents/debaun-architect.md)** — Solution discovery and lead architecture agent configured for:
 
 - Leading solution discovery and feasibility experiments (spikes & POCs)
 - Defining non-functional requirements and measurable success criteria
@@ -43,17 +48,23 @@ copilot-agents/
 - Stakeholder alignment, rollout and rollback planning, and risk mitigation
 - Operational readiness: observability, runbooks, and acceptance criteria
 
-**[DeBaun-Teacher.agent.md](DeBaun-Teacher.agent.md)** - Teacher and mentorship agent configured for:
+**[debaun-teacher](agents/debaun-teacher.md)** — Teacher and mentorship agent configured for:
 
 - Curriculum design, workshops, and short tutorials with hands-on exercises
 - Creating exercise sets, starter code, and evaluation rubrics
 - Mentorship-style feedback and code reviews to accelerate learning
 - Proposing learning paths for emergent technologies and evaluating practical experiments
-- Handoffs to `DeBaun-Architect` and `DeBaun-Coder` for spikes or implementations when appropriate
+
+**[debaun-tester](agents/debaun-tester.md)** — Testing agent configured for:
+
+- Writing new tests and raising coverage across unit, integration, and E2E layers
+- Reproducing, diagnosing, and fixing flaky or failing tests
+- Test data management and test performance optimization
+- Integrating tests reliably into CI pipelines
 
 ## Templates
 
-Repository-specific agent templates for different purposes (TL;DR: copy template → replace placeholders → add required fields → run validator → PR).
+Repository-specific agent templates for different purposes (TL;DR: copy template → replace placeholders → customize → PR).
 
 | Template | Purpose |
 |----------|---------|
@@ -63,28 +74,30 @@ Repository-specific agent templates for different purposes (TL;DR: copy template
 | **[PR Reviewer Agent](templates/repo-reviewer-agent-template.md)** | Code reviews, constructive feedback, quality checks |
 | **[Issue Template](templates/issue-template.md)** | Discovery/design/spike issue skeleton for well-scoped, actionable work items |
 
+> **Note:** The `templates/*` files are still in the legacy Copilot `.agent.md` format. Converting them to Claude subagent format is tracked separately ([copilot-agents #16](https://github.com/bryan-debaun/copilot-agents/issues/16)).
+
 ## Usage
 
-### Using the Main Agent
+### Installing the Main Agents
 
-1. Copy `DeBaun-Coder.agent.md` to your VS Code prompts folder:
+Copy the canonical agents to your user-level Claude agents directory so they are available in every project:
 
-   ```
-   %APPDATA%\Code\User\prompts\
-   ```
+```bash
+cp agents/debaun-*.md ~/.claude/agents/
+```
 
-2. The agent will be available in VS Code Copilot chat
+User-level agents (`~/.claude/agents/`) are available across all projects. Project-scoped agents live in a repository's own `.claude/agents/` and take precedence within that repo. Claude Code picks up agents automatically — invoke them by name or let Claude delegate to them.
 
 ### Creating Repo-Specific Agents
 
 1. Choose the appropriate template(s) from the [Templates](#templates) table above
 2. Copy the template content
-3. Create `.github/agents/[repo-name]-[type].agent.md` in your target repository
-   - e.g., `my-project-coder.agent.md`, `my-project-tester.agent.md`
-4. Customize the placeholders for your specific project
-5. Add additional agents as needed (coding agent is recommended as a minimum)
+3. Create `.claude/agents/<repo>-<type>.md` in your target repository (Claude subagent format)
+   - e.g., `my-project-coder.md`, `my-project-tester.md`
+4. Customize the placeholders for your specific project, including the frontmatter `name`, `description`, `model`, and `tools`
+5. Add additional agents as needed (a coding agent is recommended as a minimum)
 
 ## Related
 
-- [bryan-debaun/work-tracking](https://github.com/bryan-debaun/work-tracking) - Master issue tracking
+- Work is tracked per-repo via each repository's own GitHub Issues; portfolio-level organization uses user-level GitHub Projects (v2) boards
 - [bryan-debaun/mcp-server](https://github.com/bryan-debaun/mcp-server) - MCP tools server
